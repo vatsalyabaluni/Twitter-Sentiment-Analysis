@@ -82,10 +82,10 @@ def home():
 @app.route("/predict_user", methods=['POST','GET'])
 def predict_user():
     if request.method == 'POST':
-        user_name = request.form['user_name']
+        user = request.form['user_name']
         count = request.form['count']
-        fetched_tweets = get_user_tweets(api2, user_name, count)
-        plot(fetched_tweets,user_name)
+        fetched_tweets = get_user_tweets(api2, user, count)
+        plot(fetched_tweets,user)
         fetched_tweets = fetched_tweets.to_dict('records')
 
         return render_template('result_user.html', result=fetched_tweets)
@@ -94,10 +94,10 @@ def predict_user():
 @app.route("/predict_tag", methods=['POST','GET'])
 def predict_tag():
     if request.method == 'POST':
-        hashtag = request.form['hashtag']
+        hash = request.form['hashtag']
         count = request.form['count']
-        fetched_tweets = get_hashtag_tweets(api2,hashtag,count)
-        plot(fetched_tweets,hashtag)
+        fetched_tweets = get_hashtag_tweets(api2,hash,count)
+        plot(fetched_tweets,hash)
 
         fetched_tweets = fetched_tweets.to_dict('records')
         return render_template('result_user.html', result=fetched_tweets)
