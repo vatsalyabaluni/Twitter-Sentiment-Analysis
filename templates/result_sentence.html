@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',filename='CSS/style1.css')}}">
+    <title>Sentence Result</title>
+</head>
+<body>
+    <a href="{{ url_for('home') }}" id="home">HOME</a><br>
+    <div class="container">
+        <h1 style="color: #ffcc00;">Sentiment Analysis Result : </h1>
+        <div class="small-container">
+            <h2 style="color: #ffcc00;">Text :- {{sentence}}</h2>
+            <h2 style="color: #ffcc00;">Subjectivity : {{Subjectivity}} </h2>
+            <h2 style="color: #ffcc00;">Polarity : {{Polarity}} </h2>
+            <h2 style="color: #ffcc00;">Sentiment : {{Sentiment}}</h2>
+        </div>
+    </div>
+</body>
+</html>

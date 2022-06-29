@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='CSS/style1.css')}}">
+</head>
+<body>
+    <div class="head">
+        <h1 style="color: #ffcc00;">Twitter Sentiment Analysis</h1>
+    </div>
+
+    <div class="superset">
+        <div class="super1">
+            <a href="https://twitter.com/" target=" "><img class="twitterimg" width="400px" src="{{url_for('static',filename = 'Twitter_bird.png')}}" ></a>
+        </div>
+        <div class="super1">
+            <div class="super">
+                <div class="inner1">
+                    <h3>User Timeline Analysis</h3>
+                    <form action="/predict_user" method="post">
+                        <input type="text" name="user_name" placeholder="Enter User Name" id="1" required autocomplete="off"><br><br>
+                        <input type="text" name="count" id="2" placeholder="Enter count" required autocomplete="off"><br><br>
+
+                        <input type="submit" value="Predict!" class="btn">
+                    </form>
+                </div>
+                <div class="inner1">
+                    <h3>Hashtag/Keyword Analysis</h3>
+                    <form action="/predict_tag" method="post">
+                        <input type="text" name="hashtag" placeholder="Enter Hashtag" id="3" required autocomplete="off"><br><br>
+                        <input type="text" name="count" id="4" placeholder="Enter count" required autocomplete="off"><br><br>
+
+                        <input type="submit" value="Predict!" class="btn">
+                    </form>
+                </div>
+            </div>
+        
+            <div class="inner2">
+                <h3>Text Analysis</h3>
+                <form action="/predict_sentence" method="post">
+                    <input type="text" name="sentence" id="5" placeholder="Enter Text" required autocomplete="off" size="40px" style="height: 30px;"><br><br>
+
+                    <input type="submit" value="Predict!" class="btn">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

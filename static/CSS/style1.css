@@ -1,0 +1,116 @@
+body{
+    background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+}
+.head{
+    margin-top: 50px;
+}
+.head h1{
+    text-align: center;
+}
+
+.superset{
+    display: flex;
+    max-width: 100%;
+    margin-top: 75px;
+}
+.superset:first-child{
+    margin-right: 20px;
+}
+.super1{
+    width: 50%;
+    text-align: center;
+}
+.super{
+    display: flex;
+}
+.inner1{
+    flex: 1;
+    border: 2px solid #ffcc00;
+    color: #ffcc00;
+    text-align: center;
+    border-radius: 10px;
+}
+.inner1:first-child{
+    margin-right: 20px;
+}
+.inner2{
+    margin-top: 10px;
+    border: 2px solid #ffcc00;
+    border-radius: 10px;
+    text-align: center;
+    color: #ffcc00;
+}
+.btn{
+    color: black;
+    background-color: lightblue ;
+    border-color: black ;
+    border-radius: 10px;
+    padding: 10px 15px;
+    font-size: 16px;
+}
+.btn:hover{
+    color:white;
+    background-color: darkblue;
+    border-color: yellow;
+}
+
+.image{
+    text-align: center;
+}
+.tweet-bar{
+    text-align: right;
+}
+table.GeneratedTable {
+    width: 100%;
+    background-color: #ffffff;
+    border-collapse: collapse;
+    border-width: 2px;
+    border-color: #ffcc00;
+    border-style: solid;
+    color: #000000;
+}
+table.GeneratedTable th{
+    background-color: rgba(60, 75, 250, 0.731);
+    color: white;
+}
+table.GeneratedTable td, table.GeneratedTable th {
+    border-width: 2px;
+    border-color: #ffcc00;
+    border-style: solid;
+    padding: 4px;
+}
+  
+table.GeneratedTable thead {
+    background-color: #ffcc00;
+}
+
+table,th,td{
+    border: 1px solid black;
+    border-collapse: collapse;
+    height: 30px;
+}
+.sub2{
+    width: 100%;
+    height: 100%;
+    float: left;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.small-container{
+    text-align: center;
+}
+
+#home{
+    padding: 5px;
+    color: black;
+    background-color: #ffcc00;
+    border: 2px solid #ffcc00;
+    border-radius: 10px;
+}
+
+#home:hover{
+    color:white;
+    background-color: darkblue;
+    border-color: yellow;
+}

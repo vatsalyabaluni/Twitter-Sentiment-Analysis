@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',filename='CSS/style1.css')}}">
+    <title>User Result</title>
+</head>
+
+
+<body onload="drop_down_block()">
+  <a href="{{ url_for('home') }}" id="home">HOME</a><br>
+  <h1 style="color: #ffcc00;">Sentiment Analysis Result : </h1>
+
+  <div class="tweet-bar">
+    <input type="button" onclick="drop_down_block()" id="view" value="" class="btn">
+  </div>
+
+
+  <div class="image">
+    <img src="{{url_for('static', filename='my_plot.png')}}">
+  </div>
+
+
+
+  <div id="tweets">
+      <table class="GeneratedTable">
+        <tr>
+          <th>Tweets</th>
+          <th>Subjectivity</th>
+          <th>Polarity</th>
+          <th>Sentiment</th>
+        </tr>
+          {% for  value in result %}
+            <tr>
+              <td> {{value["Tweets"]}} </td>
+              <td> {{value["Subjectivity"]}} </td>
+              <td> {{value["Polarity"]}} </td>
+              <td>{{value["Sentiment"]}}</td>
+            </tr>
+          {% endfor %}
+        </table>
+  </div>
+</body>
+<script>
+  function drop_down_block(){
+    var v = document.getElementById("tweets");
+    if(v.style.display == "none")
+    {
+      v.style.display = "block";
+      var button = document.getElementById('view');
+      button.value = "Click Here to Hide Tweets";
+    }
+    else
+    {
+      v.style.display = "none";
+      var button = document.getElementById('view');
+      button.value = "Click Here to See Tweets";
+    }
+  }
+</script>
+</html>
