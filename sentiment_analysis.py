@@ -10,6 +10,8 @@ import matplotlib.pyplot as plt
 
 from flask import Flask, render_template, redirect, url_for, request
 
+api2 = None
+
 app = Flask(__name__)
 app.static_folder = 'static'
 
@@ -82,7 +84,7 @@ def predict_user():
     if request.method == 'POST':
         user_name = request.form['user_name']
         count = request.form['count']
-        fetched_tweets = get_user_tweets(api, user_name, count)
+        fetched_tweets = get_user_tweets(api2, user_name, count)
         plot(fetched_tweets,user_name)
         fetched_tweets = fetched_tweets.to_dict('records')
 
@@ -94,7 +96,7 @@ def predict_tag():
     if request.method == 'POST':
         hashtag = request.form['hashtag']
         count = request.form['count']
-        fetched_tweets = get_hashtag_tweets(api,hashtag,count)
+        fetched_tweets = get_hashtag_tweets(api2,hashtag,count)
         plot(fetched_tweets,hashtag)
 
         fetched_tweets = fetched_tweets.to_dict('records')
@@ -121,6 +123,7 @@ if __name__ == '__main__':
         authenticate = tweepy.OAuthHandler(API_Key, API_Key_Secret)
         authenticate.set_access_token(Access_Token, Access_Token_Secret)
         api = tweepy.API(authenticate, wait_on_rate_limit=True)
+        api2 = api
     except:
         print("Error: Authentication Failed")
 
