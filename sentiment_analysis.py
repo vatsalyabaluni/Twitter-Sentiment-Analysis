@@ -12,7 +12,7 @@ from flask import Flask, render_template, redirect, url_for, request
 
 api2 = None
 
-app = Flask(__name__)
+app = Flask(__name__ , template_folder='templates')
 app.static_folder = 'static'
 
 def cleanText(text):
