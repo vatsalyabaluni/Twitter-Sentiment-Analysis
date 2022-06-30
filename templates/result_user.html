@@ -17,12 +17,16 @@
     <input type="button" onclick="drop_down_block()" id="view" value="" class="btn">
   </div>
 
-
-  <div class="image">
-    <img src="{{url_for('static', filename='my_plot.png')}}">
+  <div class="super2">
+      <div class="supera">
+        <img src="{{url_for('static', filename='my_plot.png')}}">
+      </div>
+      <div class="supera">
+        <h3>Positive Tweets :: {{pos}}</h3><br>
+        <h3>Negative Tweets :: {{neg}}</h3><br>
+        <h3>Neutral Tweets :: {{neu}}</h3><br>
+      </div>
   </div>
-
-
 
   <div id="tweets">
       <table class="GeneratedTable">
@@ -51,6 +55,7 @@
       v.style.display = "block";
       var button = document.getElementById('view');
       button.value = "Click Here to Hide Tweets";
+      
     }
     else
     {

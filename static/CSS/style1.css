@@ -13,12 +13,30 @@ body{
     max-width: 100%;
     margin-top: 75px;
 }
+.super2{
+    display: flex;
+    max-width: 100%;
+    margin-top: 75px;
+    margin-left: 100px;
+}
+.super:first-child{
+    margin-right: 20px;
+    margin-top: 20px;
+    /* margin-right: 20px; */
+}
+.supera{
+    width: 50%;
+    text-align: center;
+    color: #ffcc00;
+}
 .superset:first-child{
     margin-right: 20px;
+    /* margin-top: 20px; */
 }
 .super1{
     width: 50%;
     text-align: center;
+    color: #ffcc00;
 }
 .super{
     display: flex;
