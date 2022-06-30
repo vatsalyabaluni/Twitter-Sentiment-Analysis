@@ -10,7 +10,16 @@ import matplotlib.pyplot as plt
 
 from flask import Flask, render_template, redirect, url_for, request
 
-api2 = None
+# api2 = None
+API_Key = "YOfX4r7g3YCy5D2vE3BUG115I"
+API_Key_Secret = "GbTTmWA5JlEyPMJF9WCTMcyPHeNcXjHBREyjSYiX4iIyHwaLlZ"
+Access_Token = "1502904942344179718-or4wUdWtudoY9HX3hjLjJSmQpvCyBx"
+Access_Token_Secret = "AUFrsoATq5EBBNbpB4o3YdaIxppP1ghq3mfqtMZjGp9PC"
+
+authenticate = tweepy.OAuthHandler(API_Key, API_Key_Secret)
+authenticate.set_access_token(Access_Token, Access_Token_Secret)
+api = tweepy.API(authenticate, wait_on_rate_limit=True)
+# api2 = api
 
 app = Flask(__name__ , template_folder='templates')
 app.static_folder = 'static'
@@ -84,7 +93,7 @@ def predict_user():
     if request.method == 'POST':
         user = request.form['user_name']
         count = request.form['count']
-        fetched_tweets = get_user_tweets(api2, user, count)
+        fetched_tweets = get_user_tweets(api, user, count)
         plot(fetched_tweets,user)
         fetched_tweets = fetched_tweets.to_dict('records')
 
@@ -96,7 +105,7 @@ def predict_tag():
     if request.method == 'POST':
         hash = request.form['hashtag']
         count = request.form['count']
-        fetched_tweets = get_hashtag_tweets(api2,hash,count)
+        fetched_tweets = get_hashtag_tweets(api,hash,count)
         plot(fetched_tweets,hash)
 
         fetched_tweets = fetched_tweets.to_dict('records')
@@ -114,18 +123,18 @@ def predict_text():
 
 if __name__ == '__main__':
 
-    API_Key = "YOfX4r7g3YCy5D2vE3BUG115I"
-    API_Key_Secret = "GbTTmWA5JlEyPMJF9WCTMcyPHeNcXjHBREyjSYiX4iIyHwaLlZ"
-    Access_Token = "1502904942344179718-or4wUdWtudoY9HX3hjLjJSmQpvCyBx"
-    Access_Token_Secret = "AUFrsoATq5EBBNbpB4o3YdaIxppP1ghq3mfqtMZjGp9PC"
-
-    try:
-        authenticate = tweepy.OAuthHandler(API_Key, API_Key_Secret)
-        authenticate.set_access_token(Access_Token, Access_Token_Secret)
-        api = tweepy.API(authenticate, wait_on_rate_limit=True)
-        api2 = api
-    except:
-        print("Error: Authentication Failed")
+    # API_Key = "YOfX4r7g3YCy5D2vE3BUG115I"
+    # API_Key_Secret = "GbTTmWA5JlEyPMJF9WCTMcyPHeNcXjHBREyjSYiX4iIyHwaLlZ"
+    # Access_Token = "1502904942344179718-or4wUdWtudoY9HX3hjLjJSmQpvCyBx"
+    # Access_Token_Secret = "AUFrsoATq5EBBNbpB4o3YdaIxppP1ghq3mfqtMZjGp9PC"
+    #
+    # try:
+    #     authenticate = tweepy.OAuthHandler(API_Key, API_Key_Secret)
+    #     authenticate.set_access_token(Access_Token, Access_Token_Secret)
+    #     api = tweepy.API(authenticate, wait_on_rate_limit=True)
+    #     api2 = api
+    # except:
+    #     print("Error: Authentication Failed")
 
     app.debug = True
     app.run()
